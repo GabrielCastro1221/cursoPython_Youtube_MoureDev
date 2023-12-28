@@ -65,7 +65,15 @@ print(reversed)
 # Funciones
 
 print(lenguaje.capitalize())  # primera letra mayuscula
+
 print(lenguaje.count("t"))  # cuenta cuantas veces esta un caracter
+
 print(lenguaje.upper())  # Mayusculas
+
 print(lenguaje.isnumeric())  # valida si la variable es numerica
+
 print(lenguaje.lower())  # Minuscula
+
+print(
+    lenguaje.startswith("py")
+)  # valida si la variable empieza por las letras que se le pasan por parametro
