@@ -28,3 +28,11 @@ def suma_return(num1, num2):
 
 
 print(suma_return(2, 6))
+
+
+#Funcion para traer textos dinamicos
+def name_with_default(name, surname, alias ="sin alias"):
+    print(f"{name} {surname} {alias}")
+    
+print("Gabriel", "Castro") #sin alias
+print("Gabriel", "Castro", "Raven") #con alias
