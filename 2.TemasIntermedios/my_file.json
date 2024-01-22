@@ -1,0 +1,10 @@
+{
+  "nombre": "gabriel",
+  "apellido": "castro",
+  "edad": 35,
+  "lenguaje": "python",
+  "website": "https://gabriel.com",
+  "lenguajes": [
+    "python, Js, java"
+  ]
+}
