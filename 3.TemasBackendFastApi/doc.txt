@@ -1,0 +1,8 @@
+1. intalar fastApi
+   pip install fastapi["all]
+
+2. importamos fastapi a la app 
+   from fastapi import FastAPI
+
+3. llamamos fastapi en nuesta app
+   app = FastAPI()
