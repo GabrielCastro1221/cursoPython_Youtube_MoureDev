@@ -50,18 +50,52 @@ async def users():
     return "Hola Users!"
 ```
 
+### Creamos la clase usuario
+
+``` #
+class User(BaseModel):
+    id: int
+    name: str
+    surname: str
+    email: str
+    age: int
+```
+
 ### Creamos la Api de usuarios
 
 ``` #
 # http://127.0.0.1:8000/usersjson
+
+users_list = [
+    User(id=1, name="gabriel", surname="Castro", email="gbrlcstr@hotmail.com", age=36),
+    User(id=2, name="Carlos", surname="Jimenez", email="Carlos@gamil.com", age=65),
+    User(id=3, name="Ana", surname="Ramirez", email="ana@gmail.com", age=68),
+]
+
+
+# http://127.0.0.1:8000/usersjson
 @app.get("/usersjson")
 async def usersjson():
     return [
-        {"name": "Gabriel", "surname": "Castro", "email": "gbrlcstr@hotmail.com"},
-        {"name": "Carlos", "surname": "Jimenez", "email": "carlos@hotmail.com"},
-        {"name": "Ana Maria", "surname": "Ramirez", "email": "ana@hotmail.com"},
+        {
+            "name": "Gabriel",
+            "surname": "Castro",
+            "email": "gbrlcstr@hotmail.com",
+            "age": 36,
+        },
+        {
+            "name": "Carlos",
+            "surname": "Jimenez",
+            "email": "carlos@hotmail.com",
+            "age": 45,
+        },
+        {
+            "name": "Ana Maria",
+            "surname": "Ramirez",
+            "email": "ana@hotmail.com",
+            "age": 25,
+        },
     ]
-
 ```
 
 ### Creamos la entidad usuario
@@ -72,4 +106,16 @@ class User(BaseModel):
     surname: str
     email: str
     age: int
+```
+
+### Creamos ruta dinamica que me filtre cada usuario por su id
+
+``` #
+@app.get("/user/{id}")
+async def user(id: int):
+    users = filter(lambda user: user.id == id, users_list)
+    try:
+        return list(users)[0]
+    except:
+        return {"error":"No se ha encontrado el usuario"}
 ```
